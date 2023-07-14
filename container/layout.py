@@ -1,7 +1,22 @@
-from PySide2.QtWidgets import QVBoxLayout, QHBoxLayout, QWidget, QPushButton
+from PySide2.QtWidgets import QVBoxLayout, QHBoxLayout, QWidget, QPushButton, QMessageBox
 from components.btns import MyPushButton
 from components.inputs import MyLineEdit
 from components.labels import MyLabel
+from components.helper_functions import *
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.figure import Figure
+from components.exceptions import freindly_error_msg
+"""Create the MatplotCanvas Class"""
+
+
+class MatplotCanvas(FigureCanvas):
+    """Class that inherits from the FigureCanvas to get all Features"""
+
+    def __init__(self, parent=None, width=5, height=4, dpi=100):
+        fig = Figure(figsize=(width, height), dpi=dpi)
+        fig.set_facecolor("#d3d3d3")
+        self.axes = fig.add_subplot(111)
+        super(MatplotCanvas, self).__init__(fig)
 
 """Create the MainLayout Class"""
 
@@ -60,6 +75,33 @@ class MainLayout(QWidget):
 
         layout1.addLayout(layout_btn)
 
+        self.sc = MatplotCanvas(self, width=5, height=4, dpi=100)
+        layout1.addWidget(self.sc)
+
         layout1.setSpacing(10)
         self.setLayout(layout1)
         layout1.setContentsMargins(10, 10, 10, 10)
+
+        self.btn.clicked.connect(self.plot)
+
+        self.grid_enabled = False
+        self.legend_enabled = False
+        self.lines = {}
+
+    def plot(self):
+        """Create the plot from helper functions that process inputs to give
+        a specific input to the matplot"""
+
+        try:
+            f_x = self.input_1_f_of_x.text()
+            xmin_input = self.input_2_x_min.text()
+            xmax_input = self.input_3_x_max.text()
+            parsed_function = parse_F_of_x(f_x)
+            x_min, x_max = x_axis(xmin_input, xmax_input)
+            x_range, y_range = X_Y_Ranges(parsed_function, x_min, x_max)
+            line, = self.sc.axes.plot(x_range, y_range)
+            self.lines[f_x] = line
+            self.sc.draw()
+        except freindly_error_msg as e:
+            error_message = str(e)
+            QMessageBox.critical(self, "Error", error_message)

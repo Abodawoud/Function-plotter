@@ -1,4 +1,4 @@
-from PySide2.QtWidgets import QVBoxLayout, QHBoxLayout, QWidget, QPushButton, QMessageBox
+from PySide2.QtWidgets import QVBoxLayout, QHBoxLayout, QWidget, QPushButton, QInputDialog, QMessageBox
 from components.btns import MyPushButton
 from components.inputs import MyLineEdit
 from components.labels import MyLabel
@@ -83,6 +83,12 @@ class MainLayout(QWidget):
         layout1.setContentsMargins(10, 10, 10, 10)
 
         self.btn.clicked.connect(self.plot)
+        self.btn_clear.clicked.connect(self.clear)
+        self.grid_toggle.clicked.connect(self.toggle_grid)
+        self.legend_toggle.clicked.connect(self.toggle_legend)
+        self.x_label.clicked.connect(self.set_x_label)
+        self.y_label.clicked.connect(self.set_y_label)
+        self.graph_title.clicked.connect(self.set_graph_title)
 
         self.grid_enabled = False
         self.legend_enabled = False
@@ -105,3 +111,58 @@ class MainLayout(QWidget):
         except freindly_error_msg as e:
             error_message = str(e)
             QMessageBox.critical(self, "Error", error_message)
+
+    def clear(self):
+        """Clear what on graph"""
+
+        self.sc.axes.clear()
+        self.sc.draw()
+
+    def toggle_grid(self):
+        """Show the gridlines on the graph"""
+
+        self.grid_enabled = not self.grid_enabled
+        self.sc.axes.grid(self.grid_enabled)
+        self.grid_toggle.setText("Hide Grid" if self.grid_enabled else "Show Grid")
+        self.sc.draw()
+
+    def toggle_legend(self):
+        """Show the legends on the graph"""
+
+        self.legend_enabled = not self.legend_enabled
+        if self.legend_enabled:
+            for f_x, line in self.lines.items():
+                legend_label = f"y = {f_x}"
+                line.set_label(legend_label)
+            self.sc.axes.legend()
+            self.legend_toggle.setText("Hide Legend")
+        else:
+            legend = self.sc.axes.get_legend()
+            if legend:
+                legend.remove()
+            self.legend_toggle.setText("Show Legend")
+        self.sc.draw()
+
+    def set_x_label(self):
+        """Sets the x-label on the x-axis"""
+
+        text, set = QInputDialog.getText(self, "Set X Label", "Enter X label:")
+        if set:
+            self.sc.axes.set_xlabel(text)
+            self.sc.draw()
+
+    def set_y_label(self):
+        """Sets the y-label on the y-axis"""
+
+        text, set = QInputDialog.getText(self, "Set Y Label", "Enter Y label:")
+        if set:
+            self.sc.axes.set_ylabel(text)
+            self.sc.draw()
+
+    def set_graph_title(self):
+        """Sets the Title of the graph on the graph"""
+
+        text, set = QInputDialog.getText(self, "Set Graph Title", "Enter Graph Title:")
+        if set:
+            self.sc.axes.set_title(text)
+            self.sc.draw()

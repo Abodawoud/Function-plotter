@@ -54,37 +54,38 @@ Using the Function Plotter App is straightforward and user-friendly. Here's a st
     <figure class="image">
         <img src="./screenshots/image3.png">
         <figcaption>
-                <b>Customization options for the plot, allowing users to adjust axis labels and graph titles.</b>
+                <center><b>Customization options for the plot, allowing users to adjust axis labels and graph titles.
+                </b></center>
         </figcaption>
     </figure>
     <figure class="image">
         <img src="./screenshots/image4.png">
         <figcaption>
-                <b>Show Grid-lines and legend</b>
+                <center><b>Show Grid-lines and legend</b></center>
         </figcaption>
     </figure>
     <figure class="image">
         <img src="./screenshots/image5.png">
         <figcaption>
-                <b>F(x) is empty</b>
+                <center><b>F(x) is empty</b></center>
         </figcaption>
     </figure>
     <figure class="image">
         <img src="./screenshots/image6.png">
         <figcaption>
-                <b>Invalid X-min</b>
+                <center><b>Invalid X-min</b></center>
         </figcaption>
     </figure>
     <figure class="image">
         <img src="./screenshots/image7.png">
         <figcaption>
-                <b>X-min can not be greater than X-max</b> 
+                <center><b>X-min can not be greater than X-max</b></center>
         </figcaption>
     </figure>
     <figure class="image">
         <img src="./screenshots/image8.png">
         <figcaption>
-                <b>function is not valid</b>
+                <center><b>function is not valid</b></center>
         </figcaption>
     </figure>
 </center>
@@ -92,7 +93,7 @@ Using the Function Plotter App is straightforward and user-friendly. Here's a st
 ## Video
 ### For illustration
 
-<video src="./screenshots/vedio - Made with Clipchamp.mp4" controls title="Title"></video>
+<video src="./screenshots/vedio.mp4" controls title="Title"></video>
 
 ## Project Structure
 ```

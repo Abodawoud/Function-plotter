@@ -33,8 +33,6 @@ def x_axis(x_min_text, x_max_text):
     try:
         x_min = float(x_min_text)
         x_max = float(x_max_text)
-        if x_min > x_max:
-            raise freindly_error_msg("X-min can not be greater than X-max")
         return (x_min, x_max)
     except (TypeError, ValueError) as e:
         error_msg = "In valid X-min or X-max " + str(e)
@@ -43,6 +41,8 @@ def x_axis(x_min_text, x_max_text):
 def X_Y_Ranges(function_parsed, x_min, x_max):
     """Get the x range and y range"""
 
+    if x_min > x_max:
+        raise freindly_error_msg("X-min can not be greater than X-max")
     x = sympy.symbols('x')
     expr_func = sympy.lambdify(x, function_parsed)
 

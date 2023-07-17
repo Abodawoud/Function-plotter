@@ -40,60 +40,61 @@ Using the Function Plotter App is straightforward and user-friendly. Here's a st
 
 <center>
     <figure class="image" style="text-align: center;">
-        <img src="./screenshots/image.png">
         <figcaption>
                 <b>The main interface of the Function Plotter App</b>
         </figcaption>
+        <img src="./screenshots/image.png">
     </figure>
     <figure class="image"  style="text-align: center;">
-        <img src="./screenshots/image2.png">
         <figcaption>
                 <b>Showing the input field for entering a mathematical function, an example of a plotted graph for a cubic function.</b>
         </figcaption>
+        <img src="./screenshots/image2.png">
     </figure>
     <figure class="image" style="text-align: center;">
-        <img src="./screenshots/image3.png">
         <figcaption>
                 <b>Customization options for the plot, allowing users to adjust axis labels and graph titles.
                 </b>
         </figcaption>
+        <img src="./screenshots/image3.png">
     </figure>
     <figure class="image" style="text-align: center;">
-        <img src="./screenshots/image4.png">
         <figcaption>
                 <b>Show Grid-lines and legend</b>
         </figcaption>
+        <img src="./screenshots/image4.png">
     </figure>
     <figure class="image"  style="text-align: center;">
-        <img src="./screenshots/image5.png">
         <figcaption>
                 <b>F(x) is empty</b>
         </figcaption>
+        <img src="./screenshots/image5.png">
     </figure>
     <figure class="image"  style="text-align: center;">
-        <img src="./screenshots/image6.png">
         <figcaption>
                 <b>Invalid X-min</b>
         </figcaption>
+        <img src="./screenshots/image6.png">
     </figure>
     <figure class="image">
-        <img src="./screenshots/image7.png">
         <figcaption>
                 <b>X-min can not be greater than X-max</b>
         </figcaption>
+        <img src="./screenshots/image7.png">
     </figure>
     <figure class="image">
-        <img src="./screenshots/image8.png">
         <figcaption>
                 <b>function is not valid</b>
         </figcaption>
+        <img src="./screenshots/image8.png">
     </figure>
 </center>
 
 ## Video
 ### For illustration
 
-<video src="https://drive.google.com/file/d/1nd52XcUNkt_qrMMrvDW_7gPtnd-13XXx/view?usp=sharing" controls title="Title"></video>
+https://github.com/Abodawoud/Function-plotter/assets/109487123/b1498dd2-92e5-41e6-93b6-5b297439105d
+
 
 ## Project Structure
 ```

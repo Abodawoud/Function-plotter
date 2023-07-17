@@ -5,7 +5,7 @@ from components.labels import MyLabel
 from components.helper_functions import *
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
-from components.exceptions import freindly_error_msg
+from components.exceptions import friendly_error_msg
 
 
 class MatplotCanvas(FigureCanvas):
@@ -55,7 +55,7 @@ class MainLayout(QWidget):
         self.x_label = MyPushButton("X label")
         self.y_label = MyPushButton("Y label")
         self.graph_title = MyPushButton("Change graph Title")
-        self.grid_toggle = MyPushButton("Show Grid_line")
+        self.grid_toggle = MyPushButton("Show Grid")
         self.legend_toggle = MyPushButton("Show Legend")
         self.btn_clear = MyPushButton("Clear")
 
@@ -112,7 +112,7 @@ class MainLayout(QWidget):
             line, = self.sc.axes.plot(x_range, y_range)
             self.lines[f_x] = line
             self.sc.draw()
-        except freindly_error_msg as e:
+        except friendly_error_msg as e:
             error_message = str(e)
             QMessageBox.critical(self, "Error", error_message)
 

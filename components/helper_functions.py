@@ -1,5 +1,5 @@
 import numpy as np
-from components.exceptions import freindly_error_msg
+from components.exceptions import friendly_error_msg
 import sympy
 
 def parse_F_of_x(function_text=""):
@@ -7,7 +7,7 @@ def parse_F_of_x(function_text=""):
 
     function_text = function_text.replace(" ", "")
     if function_text == "":
-        raise freindly_error_msg("F(X) is empty")
+        raise friendly_error_msg("F(X) is empty")
     handle_new_function = handle_old_function(function_text)
     parse_new_function = parse(handle_new_function)
     return parse_new_function
@@ -23,7 +23,7 @@ def parse(function_text: str):
     try:
         function_text = sympy.parse_expr(function_text)
     except (sympy.SympifyError, TypeError, SyntaxError):
-        raise freindly_error_msg("F(X) is not valid")
+        raise friendly_error_msg("F(X) is not valid")
     return function_text
 
 def x_axis(x_min_text, x_max_text):
@@ -35,13 +35,13 @@ def x_axis(x_min_text, x_max_text):
         return (x_min, x_max)
     except (TypeError, ValueError) as e:
         error_msg = "In valid X-min or X-max " + str(e)
-        raise freindly_error_msg(error_msg)
+        raise friendly_error_msg(error_msg)
 
 def X_Y_Ranges(function_parsed, x_min, x_max):
     """Get the x range and y range"""
 
     if x_min > x_max:
-        raise freindly_error_msg("X-min can not be greater than X-max")
+        raise friendly_error_msg("X-min can not be greater than X-max")
     x = sympy.symbols('x')
     expr_func = sympy.lambdify(x, function_parsed)
 

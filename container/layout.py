@@ -26,6 +26,14 @@ class MainLayout(QWidget):
     def __init__(self):
         super().__init__()
 
+        self.create_layouts()
+        self.start_communication()
+
+        self.grid_enabled = False
+        self.legend_enabled = False
+        self.lines = {}
+
+    def create_layouts(self):
         layout1 = QVBoxLayout()
         layout_f = QHBoxLayout()
         layout_x = QHBoxLayout()
@@ -80,6 +88,8 @@ class MainLayout(QWidget):
         self.setLayout(layout1)
         layout1.setContentsMargins(10, 10, 10, 10)
 
+
+    def start_communication(self):
         self.btn.clicked.connect(self.plot)
         self.btn_clear.clicked.connect(self.clear)
         self.grid_toggle.clicked.connect(self.toggle_grid)
@@ -87,10 +97,6 @@ class MainLayout(QWidget):
         self.x_label.clicked.connect(self.set_x_label)
         self.y_label.clicked.connect(self.set_y_label)
         self.graph_title.clicked.connect(self.set_graph_title)
-
-        self.grid_enabled = False
-        self.legend_enabled = False
-        self.lines = {}
 
     def plot(self):
         """Create the plot from helper functions that process inputs to give

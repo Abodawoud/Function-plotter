@@ -93,7 +93,7 @@ Using the Function Plotter App is straightforward and user-friendly. Here's a st
 ## Video
 ### For illustration
 
-https://github.com/Abodawoud/Function-plotter/assets/109487123/b1498dd2-92e5-41e6-93b6-5b297439105d
+https://github.com/Abodawoud/Function-plotter/assets/109487123/604d5e36-0b92-47ab-84c5-b8864b13414a
 
 
 ## Project Structure
@@ -124,7 +124,7 @@ pytest
 This command will initiate the execution of all the tests located in the `./test` directory. 
 
 ## Acknowledgement
-. MasterMicro (provide guidlines)
+. MasterMicro (provide guidelines)
 
 ## Author
 The Function Plotter App was created by Yousef Abodawoud.

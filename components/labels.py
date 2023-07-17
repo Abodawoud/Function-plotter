@@ -1,5 +1,4 @@
 from PySide2.QtWidgets import QLabel
-"""Class MyLabel"""
 
 
 class MyLabel(QLabel):

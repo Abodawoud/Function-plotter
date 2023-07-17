@@ -1,5 +1,4 @@
 from PySide2.QtWidgets import QLineEdit
-"""Class MyLineEdit"""
 
 
 class MyLineEdit(QLineEdit):

@@ -13,7 +13,6 @@ def parse_F_of_x(function_text=""):
     return parse_new_function
 
 def handle_old_function(function_text: str):
-    """Handle the function"""
 
     function_text = function_text.replace("^", "**")
     return function_text

@@ -6,7 +6,6 @@ from components.helper_functions import *
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 from components.exceptions import freindly_error_msg
-"""Create the MatplotCanvas Class"""
 
 
 class MatplotCanvas(FigureCanvas):
@@ -18,7 +17,6 @@ class MatplotCanvas(FigureCanvas):
         self.axes = fig.add_subplot(111)
         super(MatplotCanvas, self).__init__(fig)
 
-"""Create the MainLayout Class"""
 
 
 class MainLayout(QWidget):

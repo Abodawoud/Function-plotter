@@ -1,5 +1,4 @@
 from PySide2.QtWidgets import QPushButton
-"""Class MyPushButton"""
 
 
 class MyPushButton(QPushButton):

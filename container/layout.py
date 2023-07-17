@@ -117,6 +117,11 @@ class MainLayout(QWidget):
 
         self.sc.axes.clear()
         self.sc.draw()
+        self.grid_enabled = False
+        self.legend_enabled = False
+        self.lines = {}
+        self.grid_toggle.setText("Show Grid")
+        self.legend_toggle.setText("Show Legend")
 
     def toggle_grid(self):
         """Show the gridlines on the graph"""
